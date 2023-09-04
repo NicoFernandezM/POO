@@ -74,7 +74,7 @@ public class Tiempo {
                 1) Mostrar día más caluroso.
                 2) Mostrar día más frío.
                 3) Mostrar hora y día de la temperatura más baja.
-                4) Mostrar hora y día de la temperatura más baja.
+                4) Mostrar hora y día de la temperatura más alta.
                 5) Promedio de la temperatura en la semana.
                 6) Salir.
                 """);
