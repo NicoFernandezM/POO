@@ -9,6 +9,7 @@ public class Tiempo {
 
     public static void menu(double[][] datosTemperatura) {
         int opcionUsuario;
+        imprimirMatriz(datosTemperatura);
 
         do {
             mostrarMenu();
@@ -38,7 +39,7 @@ public class Tiempo {
             }
         }
 
-        System.out.println("El día " + dia + " fue el día más frío con una temperatura promedio de: " + min);
+        System.out.println("El día " + dia + " fue el día más frío con una temperatura promedio de: " + formatearNumero(min));
     }
 
     private static void mostrarDiaMasCaluroso(double[][] datosTemperatura) {
@@ -48,13 +49,13 @@ public class Tiempo {
         for(int i = 0; i < datosTemperatura.length; i++) {
             double temperaturaDia = calcularPromedioArreglo(datosTemperatura[i]);
 
-            if(temperaturaDia < max) {
+            if(temperaturaDia > max) {
                 max = temperaturaDia;
                 dia = i + 1;
             }
         }
 
-        System.out.println("El día " + dia + " fue el día más caluroso con una temperatura promedio de: " + max);
+        System.out.println("El día " + dia + " fue el día más caluroso con una temperatura promedio de: " + formatearNumero(max));
     }
 
     private static void mostrarTemperaturaPromedio(double [][] datosTemperatura) {
@@ -177,5 +178,14 @@ public class Tiempo {
     public static String formatearNumero(double numero) {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
         return decimalFormat.format(numero);
+    }
+
+    public static void imprimirMatriz(double [][] matriz) {
+        for(int i = 0; i < matriz.length; i++) {
+            for(int j = 0; j < matriz[0].length; j++) {
+                System.out.print(formatearNumero(matriz[i][j]) + "  ");
+            }
+            System.out.println();
+        }
     }
 }
